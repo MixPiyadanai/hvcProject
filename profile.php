@@ -35,7 +35,7 @@ require 'components/head.php';
                             <p class="fw-bold text-center fs-5 mb-0 Promt">รายงาน</p>
                         </a>
                     </div>
-                    <div class="col-md-2 col-sm-4 col-4">
+                    <div class="col-md-2 col-sm-4 col-4 fw-bold text-center fs-5 mb-0 Promt">
                         <a href="#">
                             <p class="fw-bold text-center fs-5 mb-0 Promt">ตั้งค่า</p>
                         </a>
@@ -47,19 +47,89 @@ require 'components/head.php';
                     <div class="col-lg-2 col-md-3 col-sm-4 col-4">
                         <img src="https://c.tenor.com/AbkJkB1pGr8AAAAC/hutao-money-rain.gif" class="mx-auto d-block" alt="..." width="100%" style="border-radius: 25%;border-width:3px; border-color:rgba(207, 0, 0, 1);border-style:solid">
                     </div>
-                    <div class="col-lg-10 col-md-9 col-sm-8 col-8">
+                    <div class="col-lg-7 col-md-9 col-sm-8 col-8">
                         <div class="row">
                             <div class="col-12">
-                            <h2 class="Itim"><?= $_SESSION["userName"]?></h2>
+                                <h2 class="Itim"><?= $_SESSION["userName"] ?></h2>
                             </div>
                             <div class="col-12">
-                            <h2 class="Itim">แผนก เทคโนโลยีสารสนเทศ</h2>
+                                <h2 class="Itim">แผนก เทคโนโลยีสารสนเทศ</h2>
                             </div>
                         </div>
-
                     </div>
+                    <div class="col-lg-3 col-md-12 p-3">
+                        AAAAAAAAAx
+                    </div>
+
                 </div>
             </div>
+            <div class="card-footer ">
+                <h3 class="Promt pt-2 fw-bold"> <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    รายงานฝึกงาน</h3>
+            </div>
+            <div class="card-footer bg-white p-4">
+                <div class="card reportCardRounded">
+                    <div class="card-body">
+                        <div class="row pt-3 pb-3">
+                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
+                                <p class="text-center fw-bold fs-2 mb-0 Itim">9</p>
+                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
+                            </div>
+                            <div class="col-12 col-md-10">
+                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
+                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card reportCardRounded">
+                    <div class="card-body">
+                        <div class="row pt-3 pb-3">
+                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
+                                <p class="text-center fw-bold fs-2 mb-0 Itim">10</p>
+                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
+                            </div>
+                            <div class="col-12 col-md-10">
+                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
+                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card reportCardRounded">
+                    <div class="card-body">
+                        <div class="row pt-3 pb-3">
+                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
+                                <p class="text-center fw-bold fs-2 mb-0 Itim">11</p>
+                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
+                            </div>
+                            <div class="col-12 col-md-10">
+                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
+                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn-lg btn-primary Itim" type="button">ดูรายงานเพิ่มเติม</button>
+                </div>
+            </div>
+            <div id="setting" class="card-footer ">
+                <h3 class="Promt pt-2 fw-bold"> <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    ตั้งค่า</h3>
+            </div>
+            <div class="card-footer bg-white p-4">
+            </div>
+
         </div>
     </div>
     <?php

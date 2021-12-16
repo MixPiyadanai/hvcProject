@@ -25,12 +25,12 @@ while ($ProfileInfo = $GetProfileQuery->fetch_assoc()) {
             <div class="col-lg-12 col-md-8 col-sm-8 slit-in-vertical">
                 <div class="row pt-3 pb-3">
                     <div class="col-5" style="border-right: 2px solid #CF0000;">
-                        <p class="fw-bold fs-4 mb-0 Itim">UserName</p>
-                        <p class="fw-bold fs-4 mb-0 Itim">Role</p>
+                        <p class="fw-bold fs-5 mb-0 Itim">UserName</p>
+                        <p class="fw-bold fs-5 mb-0 Itim">Role</p>
                     </div>
                     <div class="col-7">
-                        <p class="fw-bold fs-4 mb-0 Itim"><?= $_SESSION["userName"] ?></p>
-                        <p class="fw-bold fs-4 mb-0 Itim"><?= $_SESSION["userRole"] ?></p>
+                        <p class="fw-bold fs-5 mb-0 Itim"><?= $_SESSION["userName"] ?></p>
+                        <p class="fw-bold fs-5 mb-0 Itim"><?= $_SESSION["userRole"] ?></p>
                     </div>
                 </div>
                 <a href="profile.php" class="btn btn-primary mx-auto d-block Promt">ดูบัญชี</a>
