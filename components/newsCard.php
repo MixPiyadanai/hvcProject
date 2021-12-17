@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="d-grid gap mt-3">
-                    <button type="submit" class="btn btn-primary btn-lg Promt">เพิ่มเติม</button>
+                    <a href="news.php" class="btn btn-primary btn-lg Promt">เพิ่มเติม</a>
                 </div>
             </div>
         </div>

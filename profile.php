@@ -13,6 +13,8 @@ $getProfileQuery = mysqli_query($conn,$getProfileSQL);
 while ($profileInfo = $getProfileQuery->fetch_assoc()) {
     $userName = $profileInfo["userName"];
     $userRole = $profileInfo["userRole"];
+    $userFirstName = $profileInfo["userFirstName"];
+    $userLastName = $profileInfo["userLastName"];
 }
 ?>
 
@@ -59,7 +61,7 @@ require 'components/head.php';
                     <div class="col-lg-7 col-md-9 col-sm-8 col-8">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="Itim fs-2"><?= $userName ?></h2>
+                                <h2 class="Itim fs-2"><?= $userFirstName." ".$userLastName?> (<?= $userName ?>)</h2>
                             </div>
                             <div class="col-12">
                                 <h2 class="Itim fs-3"><?= $userRole ?></h2>
@@ -77,57 +79,48 @@ require 'components/head.php';
                     รายงานฝึกงาน</h3>
             </div>
             <div class="card-footer bg-white p-4">
-                <div class="card reportCardRounded">
-                    <div class="card-body">
-                        <div class="row pt-3 pb-3">
-                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                <p class="text-center fw-bold fs-2 mb-0 Itim">9</p>
-                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
-                            </div>
-                            <div class="col-12 col-md-10">
-                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
-                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
+            <?php
+                        require 'connectDB.php';
+                        $getReportSQL = 'SELECT * FROM `report` WHERE reportOwner = ' . $_SESSION["userID"] . ' ORDER BY `report`.`reportDate` DESC';
+                        $getReportQuery = mysqli_query($conn, $getReportSQL);
+
+                        if ($getReportQuery->num_rows > 0) {
+                            $alert = NULL;
+                            while ($reportInfo = $getReportQuery->fetch_assoc()) {
+                                $date = date_create($reportInfo["reportDate"]);
+                                $dateFormated = date_format($date, "d/m/Y");
+                                echo '
+                                <div class="card reportCardRounded">
+                                    <div class="card-body">
+                                        <div class="row pt-3 pb-3">
+                                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
+                                                <p class="text-center fw-bold fs-3 mb-0 Itim">' . $dateFormated . '</p>
+                                            </div>
+                                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
+                                            <img src="components/images/noImg.png" class="img-thumbnail">
+                                            </div>
+                                            <div class="col-12 col-md-8">
+                                                <p class="fw-bold fs-4 mb-0 Itim">' . $reportInfo["reportTitle"] . '</p>
+                                                <p class="fs-6 mb-0 Itim mb-1">' . $reportInfo["reportContent"] . '</p>
+                                                <div class="form-text">
+                                                Last Edit: ' . $reportInfo["reportLastEdit"] . '
+                                                </div>
+                                                <form action="editReport.php">
+                                                    <div class="d-grid gap-2">
+                                                        <input type="text" value="'.$reportInfo["reportID"].'" hidden name="reportID">
+                                                        <input type="submit" class="btn btn-primary Itim" value="แก้ไข">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card reportCardRounded">
-                    <div class="card-body">
-                        <div class="row pt-3 pb-3">
-                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                <p class="text-center fw-bold fs-2 mb-0 Itim">10</p>
-                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
-                            </div>
-                            <div class="col-12 col-md-10">
-                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
-                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card reportCardRounded">
-                    <div class="card-body">
-                        <div class="row pt-3 pb-3">
-                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                <p class="text-center fw-bold fs-2 mb-0 Itim">11</p>
-                                <p class="text-center fw-bold fs-3 Itim">Dec 2021</p>
-                            </div>
-                            <div class="col-12 col-md-10">
-                                <p class="fw-bold fs-4 mb-0 Itim">Title</p>
-                                <p class="fs-6 mb-0 Itim mb-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-primary Itim" type="button">แก้ไข</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                ';
+                            }
+                        } else {
+                            $alert = "ไม่พบข้อมูลรายงาน...<br>มาเพิ่มรายงานแรกกันเถอะ";
+                        }
+                        ?>
                 <div class="d-grid gap-2">
                     <button class="btn-lg btn-primary Itim" type="button">ดูรายงานเพิ่มเติม</button>
                 </div>

@@ -5,7 +5,11 @@ if ($_SESSION["userID"] == NULL) {
 } else {
 }
 
-
+if ($_GET["view"] <= 7) {
+$scrollOnLoad = 'onload="window.scrollTo(0,document.body.scrollHeight);"';
+} else {
+    $scrollOnLoad = NULL;
+}
 
 ?>
 
@@ -15,7 +19,7 @@ if ($_SESSION["userID"] == NULL) {
 require 'components/head.php';
 ?>
 
-<body style="min-height:100%;">
+<body style="min-height:100%;" <?= $scrollOnLoad?>>
     <?php
     require 'components/header.php';
     ?>
@@ -76,7 +80,7 @@ require 'components/head.php';
                                     while ($InternInfo = $getInternQuery->fetch_assoc()) {
                                         echo '
                                         <div class="col-md-12 col-lg-6 mt-3 mb-3">
-                                        <div class="card cardRounded">
+                                        <div class="card cardRounded" id="'.$_GET["view"].'">
                                             <div class="card-body p-0">
                                                 <div class="row">
                                                     <div class="col-3 p-0 ps-3 d-flex align-items-center justify-content-center">
@@ -101,7 +105,7 @@ require 'components/head.php';
                                     $InternRow = $_GET["view"] + 4;
                                     mysqli_close($conn);
                                     ?>
-                                    <a href="internship.php?view=<?= $InternRow ?>" class="btn btn-primary btn-lg mx-auto d-block Promt">ดูทั้งหมด</a>
+                                    <a href="internship.php?view=<?= $InternRow ?>" class="btn btn-primary btn-lg mx-auto d-block Promt">หน้าถัดไป</a>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +123,7 @@ require 'components/head.php';
                 $(".navigation-menu").toggleClass("active");
             });
         </script>
+        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 
