@@ -19,7 +19,7 @@ require 'components/head.php';
     <?php
     require 'components/header.php';
     ?>
-    <div class="container pt-5 pe-5 ps-5" style="z-index:-1;box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+    <div class="container pt-5 pe-5 ps-5 container-shadow">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-5 scale-in-ver-top cardRounded">
@@ -66,6 +66,9 @@ require 'components/head.php';
                                 <div class="row mb-3">
                                     <?php
                                     require "connectDB.php";
+                                    if (!isset($_GET["view"])) {
+                                        $_GET["view"] = 8;
+                                    }
                                     $internRow = $_GET["view"];
 
                                     $getInternSQL = "SELECT * FROM `internship` ORDER BY `internship`.`internID` DESC LIMIT " . $internRow . ";";
@@ -106,6 +109,7 @@ require 'components/head.php';
                 </div>
             </div>
         </div>
+    </div>
         <?php
         require 'components/footer.php';
         ?>

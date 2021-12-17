@@ -5,6 +5,15 @@ if ($_SESSION["userID"] == NULL) {
     header("Location: login.php");
 } else {
 }
+
+require 'connectDB.php';
+$getProfileSQL = 'SELECT * FROM `user` WHERE userID = '. $_SESSION["userID"];
+$getProfileQuery = mysqli_query($conn,$getProfileSQL);
+
+while ($profileInfo = $getProfileQuery->fetch_assoc()) {
+    $userName = $profileInfo["userName"];
+    $userRole = $profileInfo["userRole"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +26,7 @@ require 'components/head.php';
     <?php
     require 'components/header.php';
     ?>
-    <div class="container pt-5 pe-5 ps-5" style="z-index:-1;box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+    <div class="container pt-5 pe-5 ps-5 container-shadow">
         <div class="card mb-5 scale-in-ver-top" style="z-index:-1;">
             <div class="card-header bg-white">
                 <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-users"></i> ข้อมูลบัญชีผู้ใช้</h3>
@@ -36,8 +45,8 @@ require 'components/head.php';
                         </a>
                     </div>
                     <div class="col-md-2 col-sm-4 col-4 fw-bold text-center fs-5 mb-0 Promt">
-                        <a href="#">
-                            <p class="fw-bold text-center fs-5 mb-0 Promt">ตั้งค่า</p>
+                        <a href="#" class="fw-bold text-center fs-5 mb-0 Promt">
+                            ตั้งค่า
                         </a>
                     </div>
                 </div>
@@ -50,21 +59,21 @@ require 'components/head.php';
                     <div class="col-lg-7 col-md-9 col-sm-8 col-8">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="Itim"><?= $_SESSION["userName"] ?></h2>
+                                <h2 class="Itim fs-2"><?= $userName ?></h2>
                             </div>
                             <div class="col-12">
-                                <h2 class="Itim">แผนก เทคโนโลยีสารสนเทศ</h2>
+                                <h2 class="Itim fs-3"><?= $userRole ?></h2>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-12 p-3">
-                        AAAAAAAAAx
+                        .
                     </div>
 
                 </div>
             </div>
             <div class="card-footer ">
-                <h3 class="Promt pt-2 fw-bold"> <i class="fa fa-paperclip" aria-hidden="true"></i>
+                <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-sticky-note" aria-hidden="true"></i>
                     รายงานฝึกงาน</h3>
             </div>
             <div class="card-footer bg-white p-4">

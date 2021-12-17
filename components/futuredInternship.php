@@ -1,4 +1,4 @@
-<div class="card mb-5 scale-in-ver-top" style="box-shadow: rgba(207, 0, 0, 1) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; border-radius:15px 15px 0 0;z-index:-1;">
+<div class="card mb-5 scale-in-ver-top" style="box-shadow: rgba(207, 0, 0, 1) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; border-radius:15px 15px 0 0;">
     <div class="card-header">
         <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-star"></i> สถานที่ฝึกงานแนะนำ</h3>
     </div>

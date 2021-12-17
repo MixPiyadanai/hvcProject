@@ -17,7 +17,7 @@ require 'components/head.php';
     <?php
     require 'components/header.php';
     ?>
-    <div class="container pt-5 pe-5 ps-5" style="z-index:-1;box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;">
+    <div class="container pt-5 pe-5 ps-5 container-shadow">
         <?php
         require 'components/futuredInternship.php';
         ?>
