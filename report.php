@@ -24,63 +24,311 @@ require 'components/head.php';
             </div>
             <div class="card-body p-3 pt-4 m-0">
                 <div class="row">
+                    <!---
                     <div class="col-12 col-md-12 col-lg-2 mb-4">
                         <div class="d-grid gap-2">
                             <a href="addReport.php" class="btn-lg btn-primary Promt text-center fs-5">เพิ่มรายงานใหม่</a>
                         </div>
                     </div>
+                    --->
                     <div class="col-12 col-md-12 col-lg-2 mb-4">
                         <div class="d-grid gap-2">
-                            <a href=# class="btn-lg btn-success Promt text-center fs-5">พิมพ์รายงาน</a>
+                            <a href="reportPrint.php" class="btn-lg btn-success Promt text-center fs-5">พิมพ์รายงาน</a>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col slit-in-vertical">
+                        <table class="table table-bordered table-responsive Promt text-center fw-bold">
+                            <caption>กดที่ช่องเพื่อแก้ไขรายงานในวันนั้น ๆ<br>และต้องเพิ่มรายงานก่อนเพิ่มรูปภาพ</caption>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=1">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">1</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=2">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">2</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=3">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">3</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=4">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">4</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=5">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">5</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=6">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">6</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=7">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">7</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=8">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">8</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=9">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">9</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=10">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">10</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=11">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">11</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=12">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">12</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=13">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">13</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=14">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">14</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=15">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">15</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=16">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">16</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=17">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">17</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=18">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">18</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=19">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">19</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=20">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">20</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=21">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">21</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=22">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">22</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=23">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">23</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=24">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">24</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=25">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">25</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="?reportOrder=26">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">26</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=27">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">27</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=28">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">28</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=29">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">29</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="?reportOrder=30">
+                                            <div class="d-grid gap-2">
+                                                <p class="btn btn-primary m-0">30</p>
+                                            </div>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <?php
-                        require 'connectDB.php';
-                        $getReportSQL = 'SELECT * FROM `report` WHERE reportOwner = ' . $_SESSION["userID"] . ' ORDER BY `report`.`reportDate` DESC';
-                        $getReportQuery = mysqli_query($conn, $getReportSQL);
-
-                        if ($getReportQuery->num_rows > 0) {
-                            $alert = NULL;
-                            while ($reportInfo = $getReportQuery->fetch_assoc()) {
-                                $date = date_create($reportInfo["reportDate"]);
-                                $dateFormated = date_format($date, "d/m/Y");
-                                echo '
-                                <div class="card reportCardRounded">
-                                    <div class="card-body">
-                                        <div class="row pt-3 pb-3">
-                                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                                <p class="text-center fw-bold fs-3 mb-0 Itim">' . $dateFormated . '</p>
-                                            </div>
-                                            <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                            <img src="components/images/noImg.png" class="img-thumbnail">
-                                            </div>
-                                            <div class="col-12 col-md-8">
-                                                <p class="fw-bold fs-4 mb-0 Itim">' . $reportInfo["reportTitle"] . '</p>
-                                                <p class="fs-6 mb-0 Itim mb-1">' . $reportInfo["reportContent"] . '</p>
-                                                <div class="form-text">
-                                                Last Edit: ' . $reportInfo["reportLastEdit"] . '
-                                                </div>
-                                                <form action="editReport.php">
-                                                    <div class="d-grid gap-2">
-                                                        <input type="text" value="'.$reportInfo["reportID"].'" hidden name="reportID">
-                                                        <input type="submit" class="btn btn-primary Itim" value="แก้ไข">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                ';
+                        if (isset($_GET["reportOrder"])) {
+                            $commentTop = NULL;
+                            $commentBot = NULL;
+                            $getImgReportSQL = "SELECT * FROM `report` WHERE reportOrder = " . $_GET["reportOrder"] . " AND reportOwner = " . $_SESSION["userID"] . "";
+                            $getImgReportQuery = mysqli_query($conn, $getImgReportSQL);
+                            while ($imgInfo = $getImgReportQuery->fetch_assoc()) {
+                                if ($imgInfo["reportImg"] == "noImg.png") {
+                                    $ImageUrl = "noImg.png";
+                                } else {
+                                    $ImageUrl = $imgInfo["reportImg"];
+                                }
+                            }
+                            $getReportInfoSQL = "SELECT * FROM `report` WHERE `reportOrder` = " . $_GET["reportOrder"] . " AND `reportOwner` = " . $_SESSION["userID"] . "";
+                            $getReportInfoQuery = mysqli_query($conn, $getReportInfoSQL);
+                            if ($getReportInfoQuery) {
+                                while ($reportInfo = $getReportInfoQuery->fetch_assoc()) {
+                                    $reportContent = $reportInfo["reportContent"];
+                                    $reportDate = $reportInfo["reportDate"];
+                                }
                             }
                         } else {
-                            $alert = "ไม่พบข้อมูลรายงาน...<br>มาเพิ่มรายงานแรกกันเถอะ";
+                            $commentTop = "<!---";
+                            $commentBot = "--->";
+                        }
+                        if (isset($reportContent)) {
+                        } else {
+                            $reportContent = NULL;
                         }
                         ?>
-                        <p class="fw-bold Itim fs-1 text-center"><?= $alert ?></p>
+                        <?= $commentTop ?>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card mb-5 scale-in-ver-top" style="box-shadow: rgba(207, 0, 0, 1) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; border-radius:15px;">
+                                    <div class="card-header">
+                                        <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-sticky-note"></i> รายงานประจำวันที่ <?= $_GET["reportOrder"] ?></h3>
+                                    </div>
+                                    <div class="card-body p-3 m-0">
+                                        <form action="process/addReportProcess.php" method="GET" class="Promt mb-3">
+                                            <div class="form-floating mb-2">
+                                                <textarea class="form-control fs-4" placeholder="เนื้อหาภายในวันนี้" id="floatingTextarea" style="height:250px" name="content"><?= $reportContent ?></textarea>
+                                                <label for="floatingTextarea" class="pt-2">เนื้อหาวันนี้</label>
+                                            </div>
+                                            <input type="date" class="form-control mb-2" name="date" value="<?= $reportDate ?>">
+                                            <input type="text" class="form-control mb-2" name="reportOrder" value="<?= $_GET["reportOrder"] ?>" hidden>
+                                            <div class="d-grid gap-2">
+                                                <input type="submit" class="btn-lg btn-primary" name="" value="แก้ไขรายงาน">
+                                            </div>
+                                        </form>
 
+                                        <img src="uploads/<?= $ImageUrl ?>" class="img-thumbnail rounded mx-auto d-block" width="300px">
+                                        <form enctype="multipart/form-data" action="upload.php" method="POST" class="Promt">
+                                            <label class="form-label fs-3" for="fileToUpload">เพิ่มรูปภาพ</label>
+                                            <input type="file" class="form-control fs-4 mb-2" name="uploaded_file" id="fileToUpload"></input><br />
+                                            <div class="d-grid gap-2">
+                                                <input type="submit" class="btn-lg btn-success Promt text-center fs-5" value="เพิ่มรูปภาพ"></input>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?= $commentBot ?>
                     </div>
                 </div>
             </div>

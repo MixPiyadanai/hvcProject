@@ -46,10 +46,8 @@ require 'components/head.php';
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control Itim fs-3 pt-5" placeholder="เนื้อหา" id="formContent" style="height: 250px" name="reportContent"></textarea>
-                                <label for="formContent Itim fs-3" >เนื้อหา</label>
+                                <label for="formContent Itim fs-3">เนื้อหา</label>
                             </div>
-                            <label class="form-label fs-3 Itim" for="reportImg">เพิ่มรูปภาพ</label>
-                            <input type="file" class="form-control fs-4 Itim mb-3" id="reportImg" />
                             <div class="row">
                                 <div class="col-12 col-md-12 col-lg-2 mb-4">
                                     <div class="d-grid gap-2">

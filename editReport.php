@@ -18,6 +18,17 @@ if ($getReportQuery->num_rows != 0) {
 } else {
     header("Location: report.php");
 }
+$getImgSQL = "SELECT reportImg FROM `report` WHERE reportID = " . $_GET["reportID"];
+$getImgQuery = mysqli_query($conn, $getImgSQL);
+while ($imgInfo = $getImgQuery->fetch_assoc()) {
+
+    if ($imgInfo["reportImg"] == NULL) {
+        $ImageUrl = "NoImg.png";
+    } else {
+        $ImageUrl = $imgInfo["reportImg"];
+    }
+}
+
 
 
 ?>
@@ -40,7 +51,7 @@ require 'components/head.php';
             <div class="card-body p-3 pt-4 m-0">
                 <div class="row mb-4">
                     <div class="col slit-in-vertical">
-                        <form action="process/editReportProcess.php" method="POST">
+                        <form action="process/editReportProcess.php" method="POST" enctype="multipart/form-data">
                             <label for="reportTitle" class="form-label Promt fs-3">หัวข้อ</label>
                             <input type="text" class="form-control fs-3 Itim mb-3" id="reportTitle" placeholder="หัวข้อ" value="<?= $Title ?>" name="reportTitle">
                             <input type="text" class="form-control fs-3 Itim mb-3" id="reportTitle" placeholder="หัวข้อ" value="<?= $_GET["reportID"] ?>" name="reportID" hidden>
@@ -60,10 +71,9 @@ require 'components/head.php';
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control Itim fs-3 pt-5" placeholder="เนื้อหา" id="formContent" style="height: 250px" name="reportContent"><?= $Content ?></textarea>
-                                <label for="formContent Itim fs-3" >เนื้อหา</label>
+                                <label for="formContent Itim fs-3">เนื้อหา</label>
                             </div>
-                            <label class="form-label fs-3 Itim" for="reportImg">เพิ่มรูปภาพ</label>
-                            <input type="file" class="form-control fs-4 Itim mb-3" id="reportImg" />
+
                             <div class="row">
                                 <div class="col-12 col-md-12 col-lg-2 mb-4">
                                     <div class="d-grid gap-2">
@@ -82,6 +92,13 @@ require 'components/head.php';
                                 </div>
                             </div>
                         </form>
+                        <img src="uploads/<?= $ImageUrl ?>" class="img-thumbnail" width="300px">
+                        <form enctype="multipart/form-data" action="upload.php" method="POST">
+                            <label class="form-label fs-3 Itim" for="fileToUpload">เพิ่มรูปภาพ</label>
+                            <input type="text" class="form-control fs-3 Itim mb-3" id="reportTitle" placeholder="หัวข้อ" value="<?= $_GET["reportID"] ?>" name="reportID" hidden>
+                            <input type="file" class="form-control fs-4 Itim mb-3" name="uploaded_file" id="fileToUpload"></input><br />
+                            <input type="submit" class="btn-lg btn-success Promt text-center fs-5" value="Upload"></input>
+                        </form>
                     </div>
                 </div>
 
@@ -89,6 +106,7 @@ require 'components/head.php';
         </div>
     </div>
     <?php
+
     require 'components/footer.php';
     ?>
     <script type="text/javascript">

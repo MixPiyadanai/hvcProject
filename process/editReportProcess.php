@@ -10,7 +10,6 @@ $Content = $_POST["reportContent"];
 $userID = $_SESSION["userID"];
 
 
-
 require '../connectDB.php';
 if ($_POST["Submit"] == "แก้ไข") {
     if ($reportDay >= 1 && $reportDay <= 31) {
@@ -43,6 +42,9 @@ if ($_POST["Submit"] == "แก้ไข") {
 } else {
     $alert = "Error";
 }
+
+
+
 mysqli_close($conn);
 ?>
 <center>

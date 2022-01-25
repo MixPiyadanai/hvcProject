@@ -7,8 +7,8 @@ if ($_SESSION["userID"] == NULL) {
 }
 
 require 'connectDB.php';
-$getProfileSQL = 'SELECT * FROM `user` WHERE userID = '. $_SESSION["userID"];
-$getProfileQuery = mysqli_query($conn,$getProfileSQL);
+$getProfileSQL = "SELECT * FROM `user` WHERE `user`.`userID` = " . $_SESSION["userID"];
+$getProfileQuery = mysqli_query($conn, $getProfileSQL);
 
 while ($profileInfo = $getProfileQuery->fetch_assoc()) {
     $userName = $profileInfo["userName"];
@@ -29,31 +29,31 @@ require 'components/head.php';
     require 'components/header.php';
     ?>
     <div class="container pt-5 pe-5 ps-5 container-shadow">
-        <div class="card mb-5 scale-in-ver-top" style="z-index:-1;">
+        <div class="card mb-5 scale-in-ver-top">
             <div class="card-header bg-white">
                 <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-users"></i> ข้อมูลบัญชีผู้ใช้</h3>
             </div>
             <div class="card-header">
                 <div class="row pt-2">
                     <div class="col-md-2 col-sm-4 col-4" style="border-right: 2px solid #CF0000;">
-                        <a href="#">
+                        <a href="#info">
                             <p class="fw-bold text-center fs-5 mb-0 Promt">ข้อมูล</p>
                         </a>
 
                     </div>
                     <div class="col-md-2 col-sm-4 col-4" style="border-right: 2px solid #CF0000;">
-                        <a href="#">
+                        <a href="#report">
                             <p class="fw-bold text-center fs-5 mb-0 Promt">รายงาน</p>
                         </a>
                     </div>
                     <div class="col-md-2 col-sm-4 col-4 fw-bold text-center fs-5 mb-0 Promt">
-                        <a href="#" class="fw-bold text-center fs-5 mb-0 Promt">
+                        <a href="#setting" class="fw-bold text-center fs-5 mb-0 Promt">
                             ตั้งค่า
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="card-body" style="background-color: #EFEFEF;">
+            <div id="info" class="card-body" style="background-color: #EFEFEF;">
                 <div class="row">
                     <div class="col-lg-2 col-md-3 col-sm-4 col-4">
                         <img src="https://c.tenor.com/AbkJkB1pGr8AAAAC/hutao-money-rain.gif" class="mx-auto d-block" alt="..." width="100%" style="border-radius: 25%;border-width:3px; border-color:rgba(207, 0, 0, 1);border-style:solid">
@@ -61,10 +61,15 @@ require 'components/head.php';
                     <div class="col-lg-7 col-md-9 col-sm-8 col-8">
                         <div class="row">
                             <div class="col-12">
-                                <h2 class="Itim fs-2"><?= $userFirstName." ".$userLastName?> (<?= $userName ?>)</h2>
+                                <h2 class="Itim fs-2"><?= $userFirstName . " " . $userLastName ?> (<?= $userName ?>)</h2>
                             </div>
                             <div class="col-12">
                                 <h2 class="Itim fs-3"><?= $userRole ?></h2>
+                            </div>
+                            <div class="col-12">
+                                <!---
+                                <h2 class="Itim fs-3"><?= $userInterning ?></h2>
+                                --->
                             </div>
                         </div>
                     </div>
@@ -74,55 +79,51 @@ require 'components/head.php';
 
                 </div>
             </div>
-            <div class="card-footer ">
+            <div id="report" class="card-footer">
                 <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-sticky-note" aria-hidden="true"></i>
                     รายงานฝึกงาน</h3>
             </div>
             <div class="card-footer bg-white p-4">
-            <?php
-                        require 'connectDB.php';
-                        $getReportSQL = 'SELECT * FROM `report` WHERE reportOwner = ' . $_SESSION["userID"] . ' ORDER BY `report`.`reportDate` DESC';
-                        $getReportQuery = mysqli_query($conn, $getReportSQL);
+                <?php
+                require 'connectDB.php';
+                $getReportSQL = 'SELECT * FROM `report` WHERE reportOwner = ' . $_SESSION["userID"] . ' ORDER BY `report`.`reportDate` DESC';
+                $getReportQuery = mysqli_query($conn, $getReportSQL);
 
-                        if ($getReportQuery->num_rows > 0) {
-                            $alert = NULL;
-                            while ($reportInfo = $getReportQuery->fetch_assoc()) {
-                                $date = date_create($reportInfo["reportDate"]);
-                                $dateFormated = date_format($date, "d/m/Y");
-                                echo '
+                if ($getReportQuery->num_rows > 0) {
+                    while ($reportInfo = $getReportQuery->fetch_assoc()) {
+                        $date = date_create($reportInfo["reportDate"]);
+                        $dateFormated = date_format($date, "d/m/Y");
+                        if ($reportInfo["reportImg"] == NULL) {
+                            $reportImage = "noImg.png";
+                        } else {
+                            $reportImage = $reportInfo["reportImg"];
+                        }
+                        echo '
                                 <div class="card reportCardRounded">
                                     <div class="card-body">
                                         <div class="row pt-3 pb-3">
                                             <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                                <p class="text-center fw-bold fs-3 mb-0 Itim">' . $dateFormated . '</p>
+                                                <p class="text-center fw-bold fs-3 mb-0 Promt">' . $dateFormated . '</p>
                                             </div>
                                             <div class="col-12 col-md-2 hide-border-sm" style="border-right: 3px solid rgb(109, 109, 109);color:#000;">
-                                            <img src="components/images/noImg.png" class="img-thumbnail">
+                                            <img src="uploads/' . $reportInfo["reportImg"] . '" class="img-thumbnail">
                                             </div>
                                             <div class="col-12 col-md-8">
-                                                <p class="fw-bold fs-4 mb-0 Itim">' . $reportInfo["reportTitle"] . '</p>
-                                                <p class="fs-6 mb-0 Itim mb-1">' . $reportInfo["reportContent"] . '</p>
+                                                <p class="fs-6 mb-0 Promt mb-1">' . $reportInfo["reportContent"] . '</p>
                                                 <div class="form-text">
                                                 Last Edit: ' . $reportInfo["reportLastEdit"] . '
                                                 </div>
-                                                <form action="editReport.php">
-                                                    <div class="d-grid gap-2">
-                                                        <input type="text" value="'.$reportInfo["reportID"].'" hidden name="reportID">
-                                                        <input type="submit" class="btn btn-primary Itim" value="แก้ไข">
-                                                    </div>
-                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 ';
-                            }
-                        } else {
-                            $alert = "ไม่พบข้อมูลรายงาน...<br>มาเพิ่มรายงานแรกกันเถอะ";
-                        }
-                        ?>
+                    }
+                } else {
+                }
+                ?>
                 <div class="d-grid gap-2">
-                    <button class="btn-lg btn-primary Itim" type="button">ดูรายงานเพิ่มเติม</button>
+                    <a href="report.php" class="btn-lg btn-primary Promt text-center">ดูรายงานเพิ่มเติม</a>
                 </div>
             </div>
             <div id="setting" class="card-footer ">

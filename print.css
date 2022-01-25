@@ -1,0 +1,19 @@
+@page {
+    size:A4;
+    margin:0;
+}
+@media print {
+    #print{
+        display: none;
+    }
+}
+@font-face {
+    font-family: thSarabun;
+    src: url(components/fonts/THSarabun.ttf);
+    font-family: thSarabunBold;
+    src: url(components/fonts/THSarabun\ Bold.ttf);
+    font-family: thSarabunBoldItalic;
+    src: url(components/fonts/THSarabun\ Bold\ Italic.ttf);
+    font-family: thSarabunItalic;
+    src: url(components/fonts/THSarabun\ Italic.ttf);
+}

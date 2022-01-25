@@ -10,6 +10,7 @@ mysqli_close($conn);
 if ($getUserQuery->num_rows >= 1) {
     while ($Userinfo = $getUserQuery->fetch_assoc()) {
         if ($_POST["studentPassword"] == $Userinfo["userPassword"]) {
+            $_SESSION["userRole"] = $Userinfo["userRole"];
             $_SESSION["userID"] = $Userinfo["userID"];
             header("Location: ../index.php");
         } else {

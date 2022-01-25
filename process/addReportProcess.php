@@ -1,33 +1,31 @@
 <?php
 session_start();
-$userID = $_SESSION["userID"];
-$reportTitle = $_POST["reportTitle"];
-$reportDay = $_POST["Day"];
-$reportMonth = $_POST["Month"];
-$reportYear = $_POST["Year"];
-$Date = $reportYear . "-" . $reportMonth . "-" . $reportDay;
-$Content = $_POST["reportContent"];
-$userID = $_SESSION["userID"];
-
-if ($reportDay >= 1 && $reportDay <= 31) {
-    if ($reportMonth >= 1 && $reportMonth <= 12) {
-        require '../connectDB.php';
-        $addReportSQL = "INSERT INTO `report` (`reportID`, `reportTitle`, `reportOwner`, `reportDate`, `reportContent`, `reportImg`, `reportCreate`, `reportLastEdit`) VALUES (NULL, '$reportTitle', '$userID', '$Date', '$Content', NULL, current_timestamp(), current_timestamp());";
-        $addReportQuery = mysqli_query($conn, $addReportSQL);
-        if ($addReportQuery) {
-            header("Location: ../report.php");
-        } else {
-            echo "Error";
-        }
-        mysqli_close($conn);
+require '../connectDB.php';
+$getReportSQL = "SELECT * FROM `report` WHERE reportOrder = " . $_GET["reportOrder"] . " AND reportOwner = " . $_SESSION["userID"];
+$getReportQuery = mysqli_query($conn, $getReportSQL);
+if ($getReportQuery->num_rows >= 1) {
+    $updateReportSQL = "UPDATE `report` SET `reportDate` = '" . $_GET["date"] . "', `reportContent` = '" . $_GET["content"] . "', `reportLastEdit` = current_timestamp() WHERE `report`.`reportID` = 1;";
+    $updateReportQuery = mysqli_query($conn, $updateReportSQL);
+    if ($updateReportQuery) {
+        echo "อัพเดตข้อมูลสำเร็จ";
     } else {
-        $alert = "เดือนไม่ถูกต้อง";
+        echo "update error";
     }
-} else {
-    $alert = "วันที่ไม่ถูกต้อง";
+    
+} else if ($getReportQuery->num_rows == 0) {
+    $insertReportSQL = "INSERT INTO `report` (`reportID`, `reportOrder`, `reportOwner`, `reportDate`, `reportContent`, `reportImg`, `reportCreate`, `reportLastEdit`) VALUES (NULL, '" . $_GET["reportOrder"] . "', '" . $_SESSION["userID"] . "', '" . $_GET["date"] . "', '" . $_GET["content"] . "', 'noImg.png', current_timestamp(), current_timestamp());";
+    $insertReportQuery = mysqli_query($conn, $insertReportSQL);
+    if ($insertReportQuery) {
+        echo "เพิ่มข้อมูลสำเร็จ";
+    } else {
+        echo "insert error";
+    }
 }
+
+
 ?>
+
 <center>
-    <h1><?= $alert; ?></h1>
-    <a href="../addReport.php" style="font-weight:bold;font-size:larger;">กลับไปแก้ไข</a>
+
+    <a href="../report.php" style="font-weight:bold;font-size:larger;">กลับไปแก้ไข</a>
 </center>

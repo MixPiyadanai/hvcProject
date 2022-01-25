@@ -17,26 +17,13 @@ require 'components/head.php';
     <?php
     require 'components/header.php';
     ?>
-    <div class="container pt-5 pe-5 ps-5 container-shadow">
-        <?php
-        require 'components/quickReport.php';
-        ?>
-        <div class="row">
-            <div class="col-lg-8 col-md-12">
-                <?php
-                require 'components/newsCard.php';
-                ?>
+    <div class="container pb-5 pt-5 pe-5 ps-5 container-shadow">
+        <div class="card mb-0 scale-in-ver-top cardRounded">
+            <div class="card-header">
+                <h3 class="Promt pt-2 fw-bold"> <i class="fas fa-headset"></i> ติดต่อเรา</h3>
             </div>
-            <div class="col-lg-4 col-md-12">
-                <?php
-                require 'components/userCard.php';
-                ?>
+            <div class="card-body p-3 pt-4 m-0">
 
-            </div>
-            <div class="col-12">
-                <?php
-                require 'components/browseInternship.php';
-                ?>
             </div>
         </div>
     </div>
